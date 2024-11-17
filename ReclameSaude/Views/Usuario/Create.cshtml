@@ -1,0 +1,43 @@
+﻿@model br.com.devset.ReclameSaude.Models.UsuarioModel
+
+<h1>Cadastrar Novo Usuário</h1>
+
+<form asp-controller="Usuario" asp-action="Create" method="post">
+
+    <div>
+        <label asp-for="Nome">Nome:</label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="WatsApp">WhatsApp:</label>
+        <input asp-for="WatsApp" class="form-control" />
+        <span asp-validation-for="WatsApp" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="DataNascimento">Data de Nascimento:</label>
+        <input asp-for="DataNascimento" type="date" class="form-control" />
+        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Senha">Senha:</label>
+        <input asp-for="Senha" type="password" class="form-control" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+    </div>
+
+</form>
+
+<a asp-controller="Usuario" asp-action="Index">Voltar para a lista</a>

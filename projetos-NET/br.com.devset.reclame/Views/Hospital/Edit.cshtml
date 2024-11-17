@@ -1,0 +1,21 @@
+﻿@model br.com.devset.reclame.Models.HospitalModel
+
+<h2>Editar Hospital</h2>
+
+<form asp-controller="Hospital" asp-action="Edit" asp-route-id="@Model.HospitalId" method="post">
+
+    <!-- Campo oculto para enviar o HospitalId -->
+    <input type="hidden" asp-for="HospitalId" />
+
+    <div class="form-group">
+        <label asp-for="Nome">Nome:</label>
+        <input type="text" class="form-control" asp-for="Nome" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Endereco">Endereço:</label>
+        <input type="text" class="form-control" asp-for="Endereco" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+</form>

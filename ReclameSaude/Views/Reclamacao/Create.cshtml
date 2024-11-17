@@ -1,0 +1,33 @@
+﻿@model br.com.devset.ReclameSaude.Models.ReclamacaoModel
+
+<h1>Nova Reclamação</h1>
+
+<form asp-controller="Reclamacao" asp-action="Create" method="post">
+    <div>
+        <label asp-for="Descricao">Descrição:</label>
+        <textarea asp-for="Descricao" class="form-control"></textarea>
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Usuario.UsuarioId">Usuário:</label>
+        <select asp-for="Usuario.UsuarioId" asp-items="ViewBag.Usuarios" class="form-control">
+            <option value="">Selecione um usuário</option>
+        </select>
+        <span asp-validation-for="Usuario.UsuarioId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Hospital.HospitalId">Hospital:</label>
+        <select asp-for="Hospital.HospitalId" asp-items="ViewBag.Hospitais" class="form-control">
+            <option value="">Selecione um hospital</option>
+        </select>
+        <span asp-validation-for="Hospital.HospitalId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Cadastrar Reclamação" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-controller="Reclamacao" asp-action="Index">Voltar para a lista</a>

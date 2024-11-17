@@ -1,0 +1,44 @@
+﻿@model IEnumerable<br.com.devset.reclame.Models.UsuarioModel>
+
+
+<h1>Usuários</h1>
+
+@if (!string.IsNullOrEmpty((String)TempData["mensagemSucesso"]))
+{
+    <div class="alert alert-warning" role="alert"> @TempData["mensagemSucesso"] </div>
+}
+
+<a asp-controller="Usuario" asp-action="Create" class="btn btn-dark">Novo Usuário</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>WhatsApp</th>
+            <th>Data de Nascimento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.UsuarioId</td>
+                <td>@usuario.Nome</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.WatsApp</td>
+                <td>@usuario.DataNascimento</td>
+
+                <td>
+                    <!-- Botões de ação -->
+                    <a asp-controller="Usuario" asp-action="Edit" asp-route-id="@usuario.UsuarioId" class="btn btn-warning">Editar</a>
+                    <a asp-controller="Usuario" asp-action="Detail" asp-route-id="@usuario.UsuarioId" class="btn btn-info">Consultar</a>
+                   <a asp-controller="Usuario" asp-action="Delete" asp-route-id="@usuario.UsuarioId" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+                    <a asp-controller="Usuario" asp-action="Listar" asp-route-id="@usuario.UsuarioId" class="btn btn-secondary">Listar Reclamações</a>
+               </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+﻿@model br.com.devset.reclame.Models.HospitalModel
+
+<h1>Detalhes do Hospital</h1>
+
+    <div class="form-group">
+        <label>Descrição:</label>
+        <p class="form-control-static">@Model.Nome</p>
+    </div>
+    <div class="form-group">
+        <label>Descrição:</label>
+        <p class="form-control-static">@Model.Endereco</p>
+    </div>
+    
+
+<a asp-controller="Hospital" asp-action="Index" class="btn btn-secondary">Voltar</a>

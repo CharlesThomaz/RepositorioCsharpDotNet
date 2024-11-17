@@ -1,0 +1,25 @@
+﻿@model IEnumerable<br.com.devset.reclame.Models.ReclamacaoModel>
+
+<h2>Lista de Reclamações</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Hospital</th>
+            <th>Usuário</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReclamacaoId</td>
+                <td>@item.Descricao</td>
+                <td>@item.Hospital?.Nome</td> <!-- Nome do hospital -->
+                <td>@item.UsuarioId</td>
+            </tr>
+        }
+    </tbody>
+</table>

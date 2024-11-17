@@ -1,0 +1,30 @@
+﻿@model br.com.devset.ReclameSaude.Models.UsuarioModel
+
+@{
+    ViewBag.Title = "Detalhes do Usuário";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="form-group">
+    <label>Nome:</label>
+    <p class="form-control-static">@Model.Nome</p>
+</div>
+
+<div class="form-group">
+    <label>Email:</label>
+    <p class="form-control-static">@Model.Email</p>
+</div>
+
+<div class="form-group">
+    <label>WhatsApp:</label>
+    <p class="form-control-static">@Model.WatsApp</p>
+</div>
+
+<div class="form-group">
+    <label>Data de Nascimento:</label>
+    <p class="form-control-static">@Model.DataNascimento</p>
+</div>
+
+
+<a asp-controller="Usuario" asp-action="Index" class="btn btn-secondary">Voltar</a>

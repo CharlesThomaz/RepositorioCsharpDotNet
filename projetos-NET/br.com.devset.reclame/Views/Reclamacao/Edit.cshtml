@@ -1,0 +1,34 @@
+﻿@model br.com.devset.reclame.Models.ReclamacaoModel
+
+@{
+    ViewBag.Title = "Editar Reclamação";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<form asp-controller="Reclamacao" asp-action="Edit" method="post">
+    <!-- Campo oculto para enviar o ID -->
+    <input type="hidden" asp-for="ReclamacaoId" />
+
+    <div class="form-group">
+        <label for="Descricao">Descrição:</label>
+        <input type="text" class="form-control" asp-for="Descricao" required />
+    </div>
+
+    <div class="form-group">
+        <label for="UsuarioId">Usuário:</label>
+        <select asp-for="UsuarioId" class="form-control" asp-items="@(ViewBag.Usuarios as SelectList)" required>
+            <option value="">Selecione um usuário</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="HospitalId">Hospital:</label>
+        <select asp-for="HospitalId" class="form-control" asp-items="@(ViewBag.Hospitais as SelectList)" required>
+            <option value="">Selecione um hospital</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+</form>

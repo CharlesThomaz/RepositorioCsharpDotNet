@@ -1,0 +1,28 @@
+﻿@model br.com.devset.ReclameSaude.Models.ReclamacaoModel
+
+@{
+    ViewBag.Title = "Detalhes da Reclamação";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="form-group">
+    <label>Descrição:</label>
+    <p class="form-control-static">@Model.Descricao</p>
+</div>
+
+<div class="form-group">
+    <label>Usuário:</label>
+    <p class="form-control-static">
+        @Model.Usuario?.Nome 
+    </p>
+</div>
+
+<div class="form-group">
+    <label>Hospital:</label>
+    <p class="form-control-static">
+        @Model.Hospital?.Nome 
+    </p>
+</div>
+
+<a asp-controller="Reclamacao" asp-action="Index" class="btn btn-secondary">Voltar</a>

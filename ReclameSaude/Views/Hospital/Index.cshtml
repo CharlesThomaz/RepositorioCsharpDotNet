@@ -1,0 +1,40 @@
+﻿@model IEnumerable<br.com.devset.ReclameSaude.Models.HospitalModel>
+
+<h1>Hospitais</h1>
+
+@if (!string.IsNullOrEmpty((String)TempData["mensagemSucesso"]))
+{
+    <div class="alert alert-warning" role="alert"> @TempData["mensagemSucesso"] </div>
+}
+
+
+<a asp-controller="Hospital" asp-action="Create" class="btn btn-dark">Novo Hospital</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hospital in Model)
+        {
+            <tr>
+                <td>@hospital.HospitalId</td>
+                <td>@hospital.Nome</td>
+                <td>@hospital.Endereco</td>
+
+                <td>
+                    <!-- Botões de ação -->
+                    <a asp-controller="Hospital" asp-action="Edit" asp-route-id="@hospital.HospitalId" class="btn btn-warning">Editar</a>
+                    <a asp-controller="Hospital" asp-action="Detail" asp-route-id="@hospital.HospitalId" class="btn btn-info">Consultar</a>
+                    <a asp-controller="Hospital" asp-action="Delete" asp-route-id="@hospital.HospitalId" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

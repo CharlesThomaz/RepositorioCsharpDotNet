@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>8aeb64c3-afd8-41a8-ad9f-ab754ffbc184</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>.</DockerfileContext>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Alterando para versões 5.x do EF Core -->
+
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+
+		<!-- Oracle.EntityFrameworkCore versão 5.x compatível com o EF Core 5.x -->
+		<PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.60" />
+	</ItemGroup>
+
+</Project>

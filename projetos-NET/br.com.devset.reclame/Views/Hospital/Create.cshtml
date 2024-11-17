@@ -1,0 +1,31 @@
+﻿@model br.com.devset.reclame.Models.HospitalModel
+
+<h1>Hospital</h1>
+
+<h4>Novo</h4>
+<hr />
+<div>
+    <div>
+        <form asp-controller="Hospital" asp-action="Create" method="post">
+
+            <div>
+                <label asp-for="Nome">Nome:</label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label asp-for="Endereco">Endereço:</label>
+                <input asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+
+            <div>
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<a asp-controller="Hospital" asp-action="Index">Voltar para a lista</a>

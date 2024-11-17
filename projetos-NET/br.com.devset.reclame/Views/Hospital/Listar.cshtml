@@ -1,0 +1,35 @@
+﻿@model List<br.com.devset.reclame.Models.ReclamacaoModel>
+
+@{
+    var numReclamacoes = ViewBag.NumRec ?? 0;
+    var reclamacoes = ViewBag.Rec as List<br.com.devset.reclame.Models.ReclamacaoModel>;
+}
+
+<h2>Lista de Reclamações</h2>
+
+<p>Número de Reclamações: @numReclamacoes</p>
+
+@if (reclamacoes != null && reclamacoes.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < reclamacoes.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@reclamacoes[i].Descricao</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhuma reclamação encontrada.</p>
+}

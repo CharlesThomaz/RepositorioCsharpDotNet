@@ -1,0 +1,42 @@
+﻿@model IEnumerable<br.com.devset.ReclameSaude.Models.ReclamacaoModel>
+<h1>Reclamação</h1>
+
+@if (!string.IsNullOrEmpty((string)TempData["mensagemSucesso"]))
+{
+    <div class="alert alert-success" role="alert">@TempData["mensagemSucesso"]</div>
+}
+
+
+<a asp-controller="Reclamacao" asp-action="Create" class="btn btn-dark">Nova Reclamação</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th>Hospital</th>
+            <th>Descrição</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reclamacao in Model)
+        {
+            <tr>
+                <td>@reclamacao.ReclamacaoId</td>
+                <td>@reclamacao.Usuario.Nome</td>
+                <td>@reclamacao.Hospital.Nome</td>
+                <td>@reclamacao.Descricao</td>
+
+                
+
+                <td>
+                    <!-- Botões de ação -->
+                    <a asp-controller="Reclamacao" asp-action="Edit" asp-route-id="@reclamacao.ReclamacaoId" class="btn btn-warning">Editar</a>
+                    <a asp-controller="Reclamacao" asp-action="Detail" asp-route-id="@reclamacao.ReclamacaoId" class="btn btn-info">Consultar</a>
+                    <a asp-controller="Reclamacao" asp-action="Delete" asp-route-id="@reclamacao.ReclamacaoId" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
